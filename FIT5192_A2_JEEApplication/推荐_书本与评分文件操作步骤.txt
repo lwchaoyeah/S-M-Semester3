@@ -1,0 +1,14 @@
+
+// 用户对于书本的评分 
+// 放在 <glassfish安装目录>\glassfish\domains\domain1\config
+// 并删除第一行表头
+// (如不对，程序中打印出路径--/shared->entity->KNN->line47)
+database_recommendations_user_rating.csv
+
+// 用于推荐的书籍（需要做修改插入数据库）
+database_books.csv
+//或
+product_recommend.sql
+
+// 未做推荐用的书籍资源
+product.sql

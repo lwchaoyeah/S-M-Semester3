@@ -1,0 +1,113 @@
+body
+{
+    margin:20; 
+    font-family: Sans-Serif
+	
+}
+
+a
+{
+	color: #2F4F4F;
+	text-decoration: none;
+}
+a:hover
+{
+    color: #0000cc;
+    text-decoration:underline;
+}
+
+.bannertxt
+{
+	font-family: "Lucida Sans", Sans-Serif;
+	font-size: 20px;
+	font-style: italic;
+	background-color: #FFF8DC;
+	text-align: center;
+}
+
+.mainpage
+{
+	font-family: "Lucida Sans", Sans-Serif;
+	font-size: 20px;
+	font-style: italic;
+	text-align: center;
+	padding:16px;
+}
+
+.bordertxt
+{
+    color: #ffffff;
+    background-color: #FFF8DC;
+	 padding:8px;
+}
+.footertxt {
+    font-size: 10px;
+    color: black;
+    background-color: #3399FF;
+    height: 15px;
+}
+
+.menu
+{
+	font-size: 12px;
+	color: black;
+	background-color: #FFF8DC;
+	height: 28px;
+}
+
+.codeHeader
+{
+        font-family: "Arial";
+        color: "blue";
+}
+
+.pageHeader
+{
+        font-family: "Arial";
+        color: "black";
+}
+
+.code
+{
+        font-family: "Tahoma";
+        font-size: "10pt";
+        border:1px solid Black;
+        background:#D6E4F0;
+        padding:10px;
+        margin:20px;
+}
+.MenuStaItm
+{
+color: #000000;
+background-color: #3399FF;
+font-size: 14px;
+padding-left: 2px;
+padding-top: 2px;
+padding-right: 20px;
+border: 2px solid #729B78;
+}
+.MenuStaHov
+{
+color: #ffffff;
+background-color: #ADD8E6;
+padding-left: 2px;
+padding-top: 2px;
+padding-right: 20px;
+font-size: 14px;
+border: 2px solid #348DA9;
+}
+.MenuDynItm {
+    color: #000000;
+    background-color: #20adf5;
+    font-size: 14px;
+    padding: 2px;
+    border: 1px solid #C1B11A;
+}
+.MenuDynHov
+{
+color: #FFFFFF;
+background-color: #ADD8E6;
+padding: 2px;
+border: 2px solid #348DA9;
+text-decoration: none;
+}

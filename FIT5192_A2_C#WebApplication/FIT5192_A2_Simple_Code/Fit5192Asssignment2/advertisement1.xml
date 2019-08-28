@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Li Wenchao-->
+<Advertisements>
+  <Ad>
+    <ImageUrl>~/Images/advertisement1.jpg</ImageUrl>
+    <NavigateUrl>https://www.meituan.com/meishi/163150062/</NavigateUrl>
+    <AlternateText>Display when the picture1 is unvailable</AlternateText>
+    <Keyword>food</Keyword>
+    <Impressions>100</Impressions>
+    <Height>500</Height>
+    <Width>600</Width>
+  </Ad>
+</Advertisements>
