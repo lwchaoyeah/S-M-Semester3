@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>You can manage info of specific user here</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <f:metadata>
+        <f:viewAction action="#{userController.getUserFromPara}"/>
+    </f:metadata>
+    <h:body>
+        
+        <h1>Information of User</h1>
+        
+        <h:form>
+            <h:inputHidden value = "#{userController.userPage.userId}"/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="User ID:"/>
+                <h:outputText value="#{userController.userPage.userId}" id="UserInfoUserId"/>
+                <h:outputLabel value="Email:"/>
+                <h:outputText value="#{userController.userPage.email}" id="UserInfoEmail"/>
+                <h:outputLabel value="Last Name:"/>
+                <h:inputText value="#{userController.userPage.lastName}" id="UserInfoLastName"/>
+                <h:outputLabel value="First Name:"/>
+                <h:inputText value="#{userController.userPage.firstName}" id = "UserInfoFirstName"/>
+                <h:outputLabel value="Phone Number:"/>
+                <h:outputText value="#{userController.userPage.phoneNumer}" id="UserInfoPhoneNumber"/>
+                <h:outputLabel value="Address:"/>
+                <h:inputText value="#{userController.userPage.address}" id="UserInfoAddress"/>
+                <h:outputLabel value="Membership Level:"/>
+                <h:selectOneMenu id="UserInfoMembershipLevel" value="#{userController.userPage.membershipLevel}" required="true">
+                        <f:selectItem itemValue="Visitor" itemLabel="Visitor" /> 
+                        <f:selectItem itemValue="Customer" itemLabel="Customer" />
+                </h:selectOneMenu>
+                <h:outputLabel value="Age:"/>
+                <h:outputText value="#{userController.userPage.age}" id="UserInfoAge"/>
+                <h:outputLabel value="Gender:"/>
+                <h:outputText value="#{userController.userPage.gender}" id="UserInfoGender"/>
+                <h:outputLabel value="Favorite Movie:"/>
+                <h:outputText value="#{userController.userPage.favorMovie}" id="UserInfoFavorMovie"/>
+                <h:commandButton value="save" action="#{userController.saveSearchedUserInfo(userBean)}"/>
+                <h:commandButton value="delete" action="#{userController.deleteSearchedUser()}"/>
+            </h:panelGrid>
+        </h:form>
+        
+        <h:link value="user management page" outcome="/user/userManagement"/>
+    </h:body>
+</html>

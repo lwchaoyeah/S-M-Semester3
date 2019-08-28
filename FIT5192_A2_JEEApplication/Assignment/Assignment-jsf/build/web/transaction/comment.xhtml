@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <f:metadata>
+         <f:viewAction action="#{transactionController.getTransactionnProductBYTransactionProductId}"/>
+    </f:metadata>
+    <body>
+        <h:form>
+            <h:inputHidden value="#{transactionController.transactionProduct.transcationProductID}" />
+            <h:panelGrid columns="2">
+                <h:outputLabel value="shortTitle:"/>
+                <h:outputLabel value="#{transactionController.transactionProduct.product.shortTitle}"/>    
+                <h:outputLabel value="rating:"/>
+                <h:selectOneMenu id="raing" value="#{transactionController.transactionProduct.rating}" required="false">
+                    <f:selectItem itemValue="1" itemLabel="1" />
+                    <f:selectItem itemValue="2" itemLabel="2" />
+                    <f:selectItem itemValue="3" itemLabel="3" />
+                    <f:selectItem itemValue="4" itemLabel="4" />
+                    <f:selectItem itemValue="5" itemLabel="5" />
+                    <f:selectItem itemValue="6" itemLabel="6" />
+                    <f:selectItem itemValue="7" itemLabel="7" />
+                    <f:selectItem itemValue="8" itemLabel="8" />
+                    <f:selectItem itemValue="9" itemLabel="9" />
+                    <f:selectItem itemValue="10" itemLabel="10" />
+                </h:selectOneMenu>
+                <h:outputLabel value="commmment:"/>
+                <h:inputText value="#{transactionController.transactionProduct.commmment}"></h:inputText>
+                <h:commandButton value="save" action="#{transactionController.saveRatingComment()}"/>
+            </h:panelGrid>
+            
+            
+        </h:form>
+    </body>
+</html>

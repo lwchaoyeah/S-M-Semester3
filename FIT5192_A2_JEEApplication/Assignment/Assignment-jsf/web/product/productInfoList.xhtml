@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--
+    a list of product using table format with button :
+    update, delete, add to shopping cart.
+    an exit to home page.
+    a search function for multi product
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <h:outputStylesheet name="css/headlayout.css"/>
+    </h:head>
+    <h:body>
+        <ui:insert name="header" >
+            <ui:include src="/header.xhtml" />
+        </ui:insert> 
+        <div id="header">
+            <h1>Product Management</h1>
+        </div>
+    
+         <h:form>
+            <table border = "1" align="center"  width = "60%">
+                <tr>
+                    <td>author:</td>
+                    <td><h:inputText value="#{productBean.author}" id="author" /></td>
+                </tr>
+                <tr>
+                    <td>shortTitle:</td>
+                    <td><h:inputText value="#{productBean.shortTitle}" id = "shortTitle"/></td>
+                </tr>
+                <tr>
+                    <td>price:</td>
+                    <td><h:inputText value="#{productBean.price}" id="price" /></td>
+                </tr>
+                <tr>
+                    <td>category:</td>
+                    <td><h:inputText value="#{productBean.category}" id = "type"/></td>
+                </tr>
+                <tr>
+                    <td>rating:</td>
+                    <td><h:inputText value="#{productBean.rating}"  id = "rating"/></td>
+                </tr>
+                <tr>
+                    <td>publish_house:</td>
+                    <td><h:inputText value="#{productBean.publish_house}"  id = "publish_house"/></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:commandButton value="create" action="#{productController.createProduct(productBean)}"/>
+                    </td>
+                    <td>
+                        <h:commandButton value="search" action="#{productController.searchProductFromInfoList(productBean)}"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+        
+        <table  border="1" align="center"  width = "80%">
+            <tr>
+                <th>Book name</th>
+                <th>author</th>
+                <th>category</th>
+                <th>price</th>
+                <th>rating</th>
+                <th>publish house</th>
+                <th>operation</th>
+            </tr>
+            <ui:repeat value="#{productController.products}" var="product" varStatus="product_status">
+            <tr>    
+                <td>
+                    <h:link value="#{product.shortTitle}" outcome="productInfo">
+                    <!--
+                        This param is adding a GET variable index to associate a movie id with hyperlink.
+                    -->
+                    <f:param name="productId" value="#{product.productId}"></f:param>	
+                    </h:link>
+                </td>
+                <td>#{product.author}</td>
+                <td>#{product.category}</td>
+                <td>#{product.price}</td>
+                <td>#{product.rating}</td>
+                <td>#{product.publish_house}</td>
+                <td>
+                    <h:link value="update/delete" outcome="/product/updateProduct">
+                    <!--
+                        This param is adding a GET variable index to associate a movie id with hyperlink.
+                    -->
+                    <f:param name="productId" value="#{product.productId}"></f:param>	
+                    </h:link>
+                </td>
+            </tr>
+            </ui:repeat>
+        </table>
+       
+        <h:link value="home link" outcome="/index"/>
+    </h:body>
+</html>

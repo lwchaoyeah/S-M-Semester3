@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--
+    a list of product using table format with button :
+    update, delete, add to shopping cart.
+    an exit to home page.
+    a search function for multi product
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+     <h:head>
+        <h:outputStylesheet name="css/headlayout.css"/>
+    </h:head>
+    </h:head>
+    <h:body>
+         <ui:insert name="header" >
+            <ui:include src="/header.xhtml" />
+        </ui:insert> 
+        <div id="header">
+            <h1>User Management</h1>
+        </div>
+    
+        <h:form>
+            <table border = "1" align="center"  width = "60%">
+                <tr>
+                    <td>User ID:</td>
+                    <td><h:inputText value="#{userBean.searchedID}" id="searchedID" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:commandButton value="searchByID" action="#{userController.searchUserByID(userBean)}"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+        
+        <h:form>
+            <table border = "1" align="center"  width = "60%">
+                <tr>
+                    <td>Email:</td>
+                    <td><h:inputText value="#{userBean.searchedEmail}" id="searchedEmail" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:commandButton value="searchByEmail" action="#{userController.searchUserByEmail(userBean)}"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+        
+         <h:form>
+            <table border = "1" align="center"  width = "60%">
+                <tr>
+                    <td>Last Name:</td>
+                    <td><h:inputText value="#{userBean.searchedLastName}" id="searchedLastName" /></td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                    <td><h:inputText value="#{userBean.searchedFirstName}" id = "searchedFirstName"/></td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td><h:inputText value="#{userBean.searchedPhoneNumber}" id="searchedPhoneNumber" /></td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <h:commandButton value="searchByMultiAttributes" action="#{userController.searchUserByMultiAttributes(userBean)}"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+        
+        <table  border="1" align="center"  width = "80%">
+            <tr>
+                <th>User ID</th>
+                <th>Email</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Membership Level</th>
+            </tr>
+            <ui:repeat value="#{userController.searchedUsers}" var="users" varStatus="user_status">
+            <tr>    
+                <td>
+                    <h:link value="#{users.userId}" outcome="#{userController.moveToUserInfo(userBean)}">
+                    <!--
+                        This param is adding a GET variable index to associate a user id with hyperlink.
+                    -->
+                    <f:param name="userId" value="#{users.userId}"></f:param>	
+                    </h:link>
+                </td>
+                <td>#{users.email}</td>
+                <td>#{users.lastName}</td>
+                <td>#{users.firstName}</td>
+                <td>#{users.membershipLevel}</td>
+            </tr>
+            </ui:repeat>
+        </table>
+       
+        <h:link value="home link" outcome="/index"/>
+    </h:body>
+</html>

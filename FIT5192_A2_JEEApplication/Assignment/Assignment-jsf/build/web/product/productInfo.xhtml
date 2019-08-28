@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<!--
+    details of one product
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet name="css/headlayout.css"/>
+    </h:head>
+    <f:metadata>
+        <f:viewAction action="#{productController.getProductFromPara1}"/>
+    </f:metadata>
+    <h:body>
+        <f:metadata>
+            <f:viewAction action="#{productController.getProductFromPara1}"/>
+        </f:metadata>
+        <ui:insert name="header" >
+            <ui:include src="/header.xhtml" />
+        </ui:insert>
+        <div id="header">
+            <h1>Product Information</h1>
+        </div>
+        
+        <!-- For each movie in movies ArrayList...-->
+        <ul>
+<!--            <li>ProductId:#{productController.productPage.productId}</li>-->
+            <li>shortTitle:#{productController.productPage.shortTitle}</li>
+            <li>price:#{productController.productPage.price}</li>
+            <li>author:#{productController.productPage.author}</li>
+            <li>rating:#{productController.productPage.rating}</li>
+            <li>category:#{productController.productPage.category}</li>
+            <li>publish_house:#{productController.productPage.publish_house}</li>
+        </ul>
+        <h:form>
+        <h:inputHidden value="#{productController.productPage.productId}" />
+        <p>Number you want to add to shopping cart(less than 5): <h:message for="productNumber" styleClass="error"/></p>	
+        <h:selectOneMenu id="productNumber" value="#{userBean.productNumber}" required="true">
+         <f:selectItem itemValue="1" itemLabel="1" />
+         <f:selectItem itemValue="2" itemLabel="2" />
+         <f:selectItem itemValue="3" itemLabel="3" />
+         <f:selectItem itemValue="4" itemLabel="4" />
+         <f:selectItem itemValue="5" itemLabel="5" />
+        </h:selectOneMenu>
+        <p>
+        <h:commandButton value="add to shopping cart" action="#{productController.addToShoppingCart(userBean)}"/>
+        </p>
+        </h:form>
+        <p>
+        <h:link value="home link" outcome="/index"/>
+        </p>
+    </h:body>
+</html>

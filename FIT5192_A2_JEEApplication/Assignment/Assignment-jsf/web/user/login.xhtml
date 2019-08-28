@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>		
+<html xmlns="http://www.w3.org/1999/xhtml"	
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<h:outputStylesheet name="css/style.css"/>
+<title> Welcome to Book City</title>		
+</h:head>		
+<h:body>		
+<!-- Start Header -->		
+<header>		
+<h1>Welcome to the Book City</h1>		
+</header>		
+<!-- End Header	-->		
+<!-- Start Article -->		
+<article>		
+<h2>Please Login in first!</h2>				
+<hr />
+<!-- Form -->
+<h:form>
+<!-- Email input -->		
+<p>Your	Email: <h:message for="email" styleClass="error" /></p>		
+<h:inputText id="email" label="Email" size="32" value="#{userBean.email}" required="true"	
+             requiredMessage="You must enter your account, such as Email!" converterMessage="djshbfjshdbfjhsdvfjsgd">
+    <f:validateRegex pattern="^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$" />
+</h:inputText>
+<!-- Password input -->		
+<p>Your Password: <h:message for="passwd" styleClass="error"/></p>		
+ <h:inputSecret id="passwd" label="Password" size="32" value="#{userBean.passwd}"
+ required="true" requiredMessage="You must enter your password!">
+ </h:inputSecret>
+<!-- Form submit button -->
+<p></p>
+<li>
+<h:commandButton id="login" value="Login" action="#{userController.loginValidate(userBean)}"/>
+</li>
+</h:form>
+<h:form>
+<li>
+<h:commandButton id="register" value="Register" action= "/user/register"/>
+</li>
+</h:form>
+<!-- End Form -->		
+</article>		
+<!-- End Article -->		
+<!-- Start Footer -->		
+<footer>
+</footer>
+<!-- End Footer	-->		
+</h:body>		
+</html>

@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>You can manage info of specific user here</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+        
+        <h1>Shopping Cart</h1>
+        
+        <h:form>
+            <tr>
+                <td>
+                    <h:commandButton value="Submit" action="#{userController.submitOrder(userBean)}"/>
+                </td>
+            </tr>
+            <table  border="1" align="center"  width = "80%">
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>delete operation</th>
+            </tr>
+            <ui:repeat value="#{userBean.products}" var="product" varStatus="product_status">
+            <tr>    
+                <th>
+                    #{product.shortTitle}
+                </th>
+                <th>#{product.price}</th>
+                <th>#{product.rating}</th>
+                <th>
+                    <h:commandButton value="delete" action="#{userController.deleteProductFromCart(product.productId,userBean)}">
+                    </h:commandButton>
+                </th>
+            </tr>
+            </ui:repeat>
+                <tr>
+                    <th>total fee:</th>
+                    <th>#{productController.sumProductFee(userBean)}</th>
+                </tr>
+            </table>  
+        </h:form>
+        <h:link value="home link" outcome="/index"/>
+    </h:body>
+</html>

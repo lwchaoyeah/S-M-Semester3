@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>		
+<html xmlns="http://www.w3.org/1999/xhtml"	
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<h:outputStylesheet name="css/style.css"/>
+<title> User Status</title>		
+</h:head>		
+<h:body>		
+<!-- Start Header -->		
+<header>		
+<h1>Welcome to the user status page</h1>		
+</header>		
+<!-- End Header	-->		
+<!-- Start Article -->		
+<article>		
+<h2>You can update your personal information!</h2>				
+<hr />
+<!-- Form -->
+<h:form>
+<!-- Last Name input -->		
+<p>Last Name: <h:message for="lastName" styleClass="error" /></p>		
+<h:inputText id="lastName" label="LastName" size="32" value="#{userBean.lastName}" 
+             required="false">
+</h:inputText>	
+<!--  First Name input -->		
+<p>First Name: <h:message for="firstName" styleClass="error"/></p>		
+ <h:inputText id="firstName" label="FirstName" size="32" value="#{userBean.firstName}"
+ required="false">
+ </h:inputText>
+<!--  Address input -->		
+<p>Address: <h:message for="address" styleClass="error"/></p>		
+ <h:inputText id="address" label="Address" size="32" value="#{userBean.address}"
+ required="false">
+ </h:inputText>
+<!--  Phone Number input -->		
+<p>Phone Number: <h:message for="phoneNumber" styleClass="error"/></p>	
+<h:selectOneMenu id="contryCode" value="#{userBean.contryCode}" required="false">
+         <f:selectItem itemValue="CN" itemLabel="+86" />
+         <f:selectItem itemValue="AU" itemLabel="+61" />
+         <f:selectItem itemValue="JA" itemLabel="+81" />
+</h:selectOneMenu>
+ <h:inputText id="phoneNumber" label="PhoneNumber" size="32" value="#{userBean.phoneNumber}"
+ required="false">
+ </h:inputText>
+<!-- Age input -->		
+<p>Age: <h:message for="age" styleClass="error"/></p>		
+ <h:inputText id="age" label="Age" size="32" value="#{userBean.age}"
+ required="false" >
+ <f:validateLongRange minimum="0" maximum="100"/>
+ </h:inputText>
+<!--  Gender input -->		
+<p>Gender: <h:message for="gender" styleClass="error"/></p>		
+<h:selectOneRadio id="gender" value="#{userBean.gender}" required="false">
+         <f:selectItem itemValue="male" itemLabel="male" />
+         <f:selectItem itemValue="female" itemLabel="female" />
+</h:selectOneRadio>
+<!--  Favorite Movie input -->		
+<p>Favorite Movie: <h:message for="favoriteMovie" styleClass="error"/></p>		
+ <h:inputText id="favoriteMovie" label="FavoriteMovie" size="32" value="#{userBean.favorMovie}"
+ required="false">
+ </h:inputText>
+<!--  MemberShip Level display -->		
+<p>MemberShip Level: <h:message for="membershipLevel" styleClass="error"/></p>		
+ <h:outputText id="membershipLevel" value="#{userBean.membershipLevel}">
+ </h:outputText>
+<!-- Form submit button -->
+<p></p>
+<td>
+<h:commandButton id="save" value="Save" action="#{userController.saveChanges(userBean)}"/>
+</td>
+<td>
+<h:commandButton id="back" value="Back" action="/index"/>
+</td>
+</h:form>
+<!-- End Form -->		
+</article>		
+<!-- End Article -->		
+<!-- Start Footer -->		
+<footer>
+</footer>
+<!-- End Footer	-->		
+</h:body>		
+</html>
